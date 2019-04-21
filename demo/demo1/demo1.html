@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/css/desktopCalendar.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.shiny.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.defualt.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.glass.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.light.css">
+    <style media="screen">
+      body{
+        font-family: 'Amiri', serif;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="multiCaleder">
+
+    </div>
+
+
+
+
+    <script src="../../libs/moment.min.js" charset="utf-8"></script>
+    <script src="../../libs/moment-hijri.js" charset="utf-8"></script>
+    <script src="../../libs/moment-jalaali.js" charset="utf-8"></script>
+    <script src="../../src/js/desktopCalendar.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    String.prototype.replaceAll = function(search, replacement) {var target = this;return target.replace(new RegExp(search, 'g'), replacement);};
+
+
+    // defualt
+    // midnightBlue | royalBlue | springGreen | hotOrange | orchid | sky | gray | seaGreen | tomato | orchidBlue | tomatoPink | blueGreen | orangeBrown
+
+    // shiny
+    // sh001 | sh002 | sh003 | sh004 | sh005 | sh006
+
+
+
+
+
+
+      var myModal = new desktopCalendar({
+          selector       : "#multiCaleder" ,
+          firstCalendar  : {
+            momentType : "jYYYY-jMM-jDD",
+            title      : "هجری شمسی",
+            eventSrc   : "../../src/event/jalaali.json",
+            numbering  : function (num){
+              var intext = parseInt(num) + "";
+              intext = intext.replaceAll("1", "۱");
+              intext = intext.replaceAll("2", "۲");
+              intext = intext.replaceAll("3", "۳");
+              intext = intext.replaceAll("4", "۴");
+              intext = intext.replaceAll("5", "۵");
+              intext = intext.replaceAll("6", "۶");
+              intext = intext.replaceAll("7", "۷");
+              intext = intext.replaceAll("8", "۸");
+              intext = intext.replaceAll("9", "۹");
+              intext = intext.replaceAll("0", "۰");
+              return intext;},
+            monthTitle : [
+                      "فروردین",
+                      "اردیبهشت",
+                      "خرداد",
+                      "تیر",
+                      "مرداد",
+                      "شهریور",
+                      "مهر",
+                      "آبان",
+                      "آذر",
+                      "دی",
+                      "بهمن",
+                      "اسفند"
+            ]
+          },
+          secondCalendar  : {
+            momentType : "YYYY-MM-DD",
+            title      : "میلادی",
+            eventSrc   : "../../src/event/gregorian.json",
+            direction  : "ltr"
+          },
+          thirdCalendar  : {
+            momentType : "iYYYY-iMM-iDD",
+            title      : "هجری قمری",
+            eventSrc   : "../../src/event/hijri.json",
+            numbering  : function (num){
+              var intext = parseInt(num) + "";
+              intext = intext.replaceAll("1", "۱");
+              intext = intext.replaceAll("2", "۲");
+              intext = intext.replaceAll("3", "۳");
+              intext = intext.replaceAll("4", "۴");
+              intext = intext.replaceAll("5", "۵");
+              intext = intext.replaceAll("6", "۶");
+              intext = intext.replaceAll("7", "۷");
+              intext = intext.replaceAll("8", "۸");
+              intext = intext.replaceAll("9", "۹");
+              intext = intext.replaceAll("0", "۰");
+              return intext;},
+            monthTitle : [
+              "محرم",
+              "صفر",
+              "ربیع الاول",
+              "ربیع الثانی",
+              "جمادی الاول",
+              "جمادی الثانی",
+              "رجب",
+              "شعبان",
+              "رمضان",
+              "شوال",
+              "ذیقعده",
+              "ذیحجه"
+            ]
+          },
+          dayName        : {
+            su  : "یک شنبه" ,
+            mo  : "دو شنبه" ,
+            tu  : "سه شنبه" ,
+            we  : "چهار شنبه" ,
+            th  : "پنچ شنبه" ,
+            fr  : "جمعه" ,
+            sa  : "شنبه"
+          },
+          direction      : "rtl",
+          startday       : "sa",
+          theme          : "light" ,
+          coloring       : "blue" ,
+          // date      : "1398-1-10",
+          weekendHoliday : "fr",
+          lang     : {
+            events   : "مناسبت",
+            calender : "تقویم",
+            holiday  : "تعطیل"
+          },
+          onChange      : function(a,b){
+            myModal.addEvent("firstCalendar","1398-01-31","test 2",1);
+            myModal.addEvents([
+              {
+                "type"    : "firstCalendar" ,
+                "title"   : "عنوان جدید" ,
+                "date"    : "1398-01-27" ,
+                "holiday" : "1"
+              },
+              {
+                "type"    : "firstCalendar" ,
+                "title"   : "عنوان جدید" ,
+                "date"    : "1398-01-27" ,
+                "holiday" : 0
+              }
+            ]);
+          },
+          momentConf   : function(m){
+            return m;
+          }
+      });
+
+
+
+
+
+
+      //-------------------------------
+
+      // setTimeout(function () {
+      //   myModal.setYear(1396);
+      // }, 10000);
+
+      // setTimeout(function () {
+      //   myModal.setMonth(10);
+      // }, 10000);
+
+      //-------------------------------
+
+      // setTimeout(function () {
+      //   myModal.setTheme("fgh","royalBlue");
+      // }, 10000);
+
+      //-------------------------------
+
+      // var coloring = [ "midnightBlue" , "royalBlue" , "springGreen" , "hotOrange" , "orchid" , "sky" , "gray" , "seaGreen" , "tomato" , "orchidBlue" , "tomatoPink" , "blueGreen" , "orangeBrown" ];
+      // i = 0;
+      // setInterval(function(){
+      //   if (i >= coloring.length ) {
+      //     i = 0;
+      //   }
+      //   myModal.setColoring(coloring[i]);
+      //   i++
+      // },1000)
+
+      //-------------------------------
+
+      // setTimeout(function () {
+      //   myModal.setColoring("royalBlue");
+      // }, 10000);
+
+      //-------------------------------
+
+      // setTimeout(function () {
+      //   myModal.destroy();
+      // }, 20000);
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+.desktopCalendar{width: 100%;position: relative;padding: 0px;margin: 5px 0px;overflow: hidden;direction: rtl;}
+.desktopCalendar[lang-dir="ltr"]{direction: ltr;}
+.desktopCalendar *{padding: 0px; margin: 0px;}
+.desktopCalendar .dc--body{position: relative;display: flex;width: 100%;}
+.desktopCalendar .dc--sidebar{position: relative;flex: 0;width: 0px;overflow: hidden;}
+.desktopCalendar .dc--sidebar.dc--showBar{flex: 1;}
+.desktopCalendar .dc--mainbar{flex: 3;position: relative;}
+.desktopCalendar label{cursor: pointer;}
+.desktopCalendar .dc--calendarHeader input{display: none;}
+.desktopCalendar .dc--calendarHeader .dc-yearInput{}
+.desktopCalendar .dc--calendarHeader .dc-monthInput{}
+.desktopCalendar .dc--calendarHeader .dc-calendarTitle{}
+.desktopCalendar .dc--calendarFooter{ width: 100%;}
+.desktopCalendar .calendarTabel{width: 100%;}
+.desktopCalendar .calendarTabel thead , .desktopCalendar .calendarTabel tbody , .desktopCalendar .calendarTabel tr  {}
+.desktopCalendar .calendarTabel thead{}
+.desktopCalendar .calendarTabel tbody{}
+.desktopCalendar .calendarTabel tr { width: 100%;}
+.desktopCalendar .calendarTabel th {line-height: 50px;width: calc(100%/7);position: relative;overflow: hidden;white-space: nowrap;}
+.desktopCalendar .calendarTabel td {height: 50px;position: relative;overflow: hidden;}
+.desktopCalendar .calendarTabel td.holiday{}
+.desktopCalendar .calendarTabel td.today{}
+.desktopCalendar .calendarTabel td.selected{}
+.desktopCalendar .calendarTabel td>.firstCalendar{position: absolute;width: 100%;height: 100%;line-height: 50px;text-align: center;z-index: 10;cursor: pointer;font-size: 0.9rem;top: 0px;}
+.desktopCalendar .calendarTabel td>.firstCalendar.base-form{left: 0px;}
+.desktopCalendar .calendarTabel td>.firstCalendar.second-form{top: -100%;}
+.desktopCalendar .calendarTabel td>.secondCalendar{position: absolute;z-index: 20;left: 1px;top: 1px;width: 22px;height: 22px;text-align: center;line-height: 22px;font-size: 0.7rem;border-radius: 50%;color: var(--color-dc-dark);}
+.desktopCalendar .calendarTabel td>.thirdCalendar{position: absolute;z-index: 20;left: 1px;bottom: 1px;width: 22px;height: 22px;text-align: center;line-height: 22px;font-size: 0.7rem;border-radius: 50%;color: var(--color-dc-dark);}
+.desktopCalendar .dc--Modal{position: absolute;z-index: 100;width: 100%;height: 0px;top: 150%;left: 0;overflow: hidden;-webkit-transition: all 1s; /* Safari */transition: all 1s;z-index: 500;}
+.desktopCalendar .dc--Modal .dc--close{width: 50px;height: 50px;border: none;line-height: 50px;text-align: center;font-size: x-large;cursor: pointer;outline: none;}
+.desktopCalendar .dc--Modal .dc--ModalBody{position: relative;width: 100%;height: 100%;}
+.desktopCalendar .dc--Modal .dc--ModalContent{position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);width: 250px;height: 210px;}
+.desktopCalendar .month-item{position: relative;text-align: center;width: calc( (100% - 6px) / 3 );height: 50px;margin: 0;float: right;line-height: 50px;border: 1px solid;cursor: pointer;}
+.desktopCalendar .dc--Modal.dc--show{height: 100%;top: 0px;}
+.desktopCalendar .animate-transition{-webkit-transition: all 0.5s; transition: all 0.5s;}
+.desktopCalendar .filltering{  /* -webkit-filter: grayscale(100%) blur(6px);  filter: grayscale(100%) blur(6px); */}
+.desktopCalendar .dc--toggleSidebar{position: absolute;left: 0;top: 10px;border: none;line-height: 30px;border-radius: 0 5px 5px 0;padding: 0 10px 0 5px;cursor: pointer;z-index: 500;}
+.desktopCalendar .dc--toggleSidebar:hover , .desktopCalendar .dc--toggleSidebar:active , .desktopCalendar .dc--toggleSidebar:focus{outline: none;border:none;}
+.desktopCalendar .dc--toggleSidebar:hover{padding: 0 10px 0 10px;border-radius: 0 10px 10px 0;}
+.desktopCalendar .dc--yearModalContent{width: 100%;overflow: hidden;height: 159px;position: relative;}
+.desktopCalendar .dc--nextPageYear{position: absolute;left: -20px;top: 63px;width: 20px;line-height: 30px;border: none;font-size: 1.25rem;border-radius: 5px 0 0 5px;cursor: pointer;}
+.desktopCalendar .dc--previwPageYear{position: absolute;right: -20px;top: 64px;width: 20px;line-height: 30px;border: none;font-size: 1.25rem;border-radius: 0 5px 5px 0;cursor: pointer;}
+.desktopCalendar .year-item{width: calc( (100% - 6px) / 3);float: right;border: 1px solid;text-align: center;line-height: 30px;cursor: pointer;}
+.desktopCalendar .year-item.this-year{}
+.desktopCalendar .dc--sidebar>div{position: relative;}
+.desktopCalendar .dc--sidebarMonthRage{min-height: 100px !important;}
+.desktopCalendar .dc--sidebarBaseCalDayNum{text-align: center;font-size: 1.5rem}
+.desktopCalendar .dc--sidebarBaseCalDayTitle{}
+
+
+@media screen and (max-width: 600px) {
+  .desktopCalendar .dc--body{display: block; }
+  .desktopCalendar .dc--mainbar{}
+  .desktopCalendar .dc--sidebar{position: absolute;top: 0;left: 0;width: 0%;height: 100%;overflow: hidden;z-index: 400;}
+  .desktopCalendar .dc--sidebar.dc--showBar{width: 100%}
+  .desktopCalendar .dc--toggleSidebar{z-index: 500;left: 10px;width: 30px;border-radius: 50%;text-align: center;line-height: 30px;padding: 0;height: 30px;opacity: 0.5;}
+  .desktopCalendar .dc--toggleSidebar:hover{padding: 0;border-radius: 50%;opacity: 1;}
+}
