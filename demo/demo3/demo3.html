@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/css/desktopCalendar.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.shiny.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.default.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.glass.css">
+    <link rel="stylesheet" href="../../src/css/desktopCalendarTheme.light.css">
+    <style media="screen">
+      body{
+        font-family: 'Amiri', serif;
+      }
+      .mc{
+        width: 600px;
+        margin: 25px calc( 50% - 300px );
+        border: 1px solid #c3c3c3;
+        background-color: #fcfcfc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #b9b9b9;
+      }
+
+      @media screen and (max-width: 600px) {
+        .mc{width:100%;margin:5px 0px;}
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="multiCaleder1" class="mc">
+    </div>
+
+
+
+    <script src="../../libs/moment.min.js" charset="utf-8"></script>
+    <script src="../../libs/moment-hijri.js" charset="utf-8"></script>
+    <script src="../../libs/moment-jalaali.js" charset="utf-8"></script>
+    <script src="../../src/js/desktopCalendar.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    String.prototype.replaceAll = function(search, replacement) {var target = this;return target.replace(new RegExp(search, 'g'), replacement);};
+
+
+    // default
+    // midnightBlue | royalBlue | springGreen | hotOrange | orchid | sky | gray | seaGreen | tomato | orchidBlue | tomatoPink | blueGreen | orangeBrown
+
+    // shiny
+    // sh001 | sh002 | sh003 | sh004 | sh005 | sh006
+
+    // glass
+    // color1 | color2 | color3 | color4 | color5 | color6 | colot7 | color8 | color9
+
+    // light
+    // blue | green | red | orange | gray | yellow
+
+    var styleList = [];
+    styleList.push({"them" : "default" , "coloring" : "midnightBlue"});
+    styleList.push({"them" : "default" , "coloring" : "royalBlue"});
+    styleList.push({"them" : "default" , "coloring" : "springGreen"});
+    styleList.push({"them" : "default" , "coloring" : "hotOrange"});
+    styleList.push({"them" : "default" , "coloring" : "orchid"});
+    styleList.push({"them" : "default" , "coloring" : "sky"});
+    styleList.push({"them" : "default" , "coloring" : "gray"});
+    styleList.push({"them" : "default" , "coloring" : "seaGreen"});
+    styleList.push({"them" : "default" , "coloring" : "tomato"});
+    styleList.push({"them" : "default" , "coloring" : "orchidBlue"});
+    styleList.push({"them" : "default" , "coloring" : "tomatoPink"});
+    styleList.push({"them" : "default" , "coloring" : "blueGreen"});
+    styleList.push({"them" : "default" , "coloring" : "orangeBrown"});
+    styleList.push({"them" : "shiny" , "coloring" : "sh001"});
+    styleList.push({"them" : "shiny" , "coloring" : "sh002"});
+    styleList.push({"them" : "shiny" , "coloring" : "sh003"});
+    styleList.push({"them" : "shiny" , "coloring" : "sh004"});
+    styleList.push({"them" : "shiny" , "coloring" : "sh005"});
+    styleList.push({"them" : "shiny" , "coloring" : "sh006"});
+    styleList.push({"them" : "glass" , "coloring" : "color1"});
+    styleList.push({"them" : "glass" , "coloring" : "color2"});
+    styleList.push({"them" : "glass" , "coloring" : "color3"});
+    styleList.push({"them" : "glass" , "coloring" : "color4"});
+    styleList.push({"them" : "glass" , "coloring" : "color5"});
+    styleList.push({"them" : "glass" , "coloring" : "color6"});
+    styleList.push({"them" : "glass" , "coloring" : "color7"});
+    styleList.push({"them" : "glass" , "coloring" : "color8"});
+    styleList.push({"them" : "glass" , "coloring" : "color9"});
+    styleList.push({"them" : "light" , "coloring" : "blue"});
+    styleList.push({"them" : "light" , "coloring" : "green"});
+    styleList.push({"them" : "light" , "coloring" : "red"});
+    styleList.push({"them" : "light" , "coloring" : "orange"});
+    styleList.push({"them" : "light" , "coloring" : "gray"});
+    styleList.push({"them" : "light" , "coloring" : "yellow"});
+
+    var i = 0;
+
+
+    function farsiNum(num){
+      var intext = parseInt(num) + "";
+      intext = intext.replaceAll("1", "۱");
+      intext = intext.replaceAll("2", "۲");
+      intext = intext.replaceAll("3", "۳");
+      intext = intext.replaceAll("4", "۴");
+      intext = intext.replaceAll("5", "۵");
+      intext = intext.replaceAll("6", "۶");
+      intext = intext.replaceAll("7", "۷");
+      intext = intext.replaceAll("8", "۸");
+      intext = intext.replaceAll("9", "۹");
+      intext = intext.replaceAll("0", "۰");
+      return intext;
+    }
+
+    var myModal1 = new desktopCalendar({
+      selector       : "#multiCaleder1" ,
+      secondCalendar  : {
+        momentType : "jYYYY-jMM-jDD",
+        title      : "Jalali",
+        eventSrc   : "../../src/event/jalaali.json",
+        numbering  : farsiNum,
+        monthTitle : ["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند" ],
+        direction  : "rtl"
+      },
+      firstCalendar  : {
+        momentType : "YYYY-MM-DD",
+        title      : "Gregorian",
+        eventSrc   : "../../src/event/gregorian.json"
+      },
+      thirdCalendar  : {
+        momentType : "iYYYY-iMM-iDD",
+        title      : "Hijri",
+        eventSrc   : "../../src/event/hijri.json",
+        numbering  : farsiNum,
+        monthTitle : ["محرم","صفر","ربیع الاول","ربیع الثانی","جمادی الاول","جمادی الثانی","رجب","شعبان","رمضان","شوال","ذیقعده","ذیحجه" ],
+        direction  : "rtl"
+      },
+      direction      : "ltr",
+      startday       : "sa",
+      theme          : "glass" ,
+      coloring       : "color6" ,
+      weekendHoliday : "fr",
+      lang     : {
+        events   : "Events",
+        calender : "Calendar",
+        holiday  : "Holiday"
+      },
+      dayName        : {
+        su : "Sunday",
+        mo : "Monday",
+        tu : "Tuesday",
+        we : "Wednesday",
+        th : "Thursday",
+        fr : "Friday",
+        sa : "Saturday"
+      }
+    });
+
+
+    setInterval(function () {
+      console.log(styleList[i].them+" - "+styleList[i].coloring);
+      myModal1.setTheme(styleList[i].them,styleList[i].coloring);
+      i++;
+      if (i >= styleList.length) {
+        i = 0;
+      }
+    }, 1000);
+
+    </script>
+  </body>
+</html>
