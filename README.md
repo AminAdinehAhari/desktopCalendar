@@ -93,8 +93,8 @@ var myModal = new desktopCalendar({
 
 
 # Demo
-[Demo 1](https://codepen.io/aminadinehahari/pen/ZNPOjx)
-[Demo 2](https://codepen.io/aminadinehahari/pen/WBmXYj)
-[Demo 3](https://codepen.io/aminadinehahari/pen/LoaQpW)
-[Demo 4](https://codepen.io/aminadinehahari/pen/xNBeVe)
+[Demo 1](https://codepen.io/aminadinehahari/pen/ZNPOjx) , 
+[Demo 2](https://codepen.io/aminadinehahari/pen/WBmXYj) , 
+[Demo 3](https://codepen.io/aminadinehahari/pen/LoaQpW) , 
+[Demo 4](https://codepen.io/aminadinehahari/pen/xNBeVe) , 
 [Demo 5](https://codepen.io/aminadinehahari/pen/xNBeVe)
