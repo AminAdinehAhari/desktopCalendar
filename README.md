@@ -38,7 +38,7 @@ In order to display the viewer, you need to attach it to a HTML element.
 Then call the script when document is ready
 ```js
 var myModal = new desktopCalendar({
-          selector       : "#multiCaleder" ,
+          selector       : "#desktopCalendar" ,
           firstCalendar  : {
             momentType : "jYYYY-jMM-jDD",
             title      : "هجری شمسی",
@@ -93,3 +93,8 @@ var myModal = new desktopCalendar({
 
 
 # Demo
+[Demo 1](https://codepen.io/aminadinehahari/pen/ZNPOjx)
+[Demo 2](https://codepen.io/aminadinehahari/pen/WBmXYj)
+[Demo 3](https://codepen.io/aminadinehahari/pen/LoaQpW)
+[Demo 4](https://codepen.io/aminadinehahari/pen/xNBeVe)
+[Demo 5](https://codepen.io/aminadinehahari/pen/xNBeVe)
